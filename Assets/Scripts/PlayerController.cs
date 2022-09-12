@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_TempCooldown;
     [SerializeField] int m_HpPlayer;
     private SpawnManager m_SpawnManager;
+    private AudioManager m_AudioManager;
     // [SerializeField] ProjecttilePool projecttilePool;
     private int m_CurrentHp;
     private GameManagerr m_GameManager;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
         m_CurrentHp= m_HpPlayer;
         m_SpawnManager= FindObjectOfType<SpawnManager>();
         m_GameManager= FindObjectOfType<GameManagerr>();
+        m_AudioManager =FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -51,13 +53,22 @@ public class PlayerController : MonoBehaviour
         ProjecttileController projectTile= m_SpawnManager.SpawnPlayerProjectile(m_FiringPoint.position);
         projectTile.DestroyFire();
         m_SpawnManager.SpawnShootingFX(m_FiringPoint.position+ new Vector3 (0, 1.5f, 0));
+        m_AudioManager.PlayLazerSFX();
     }
 
     public void Hit(int damage)
     {   
         m_CurrentHp-=damage;
         if(m_CurrentHp<=0)
+        {
             Destroy(gameObject);
+            //Phuc
+            // m_SpawnManager.SpawnExlosionFX(transform.position);
             m_GameManager.GameOver(false);
+            m_AudioManager.PlayExplosionSFX();
+
+        }
+         m_AudioManager.PlayHitSFX();   
     }
+    
 }

@@ -146,7 +146,7 @@ public class SpawnManager : MonoBehaviour
         for (int i =0; i<pGroups; i++)
         {
             int m_TotalEnemy = Random.Range(m_MinTotalEnemy, m_MaxTotalEnemy);
-             int pathIndex= Random.Range(0, m_Paths.Length);
+            int pathIndex= Random.Range(0, m_Paths.Length);
             EnemyPath path= m_Paths[pathIndex];
             yield return StartCoroutine(IESpawnEnenies(m_TotalEnemy, path));
             if(i< pGroups-1)

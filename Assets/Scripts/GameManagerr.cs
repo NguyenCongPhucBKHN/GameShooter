@@ -17,6 +17,7 @@ public class GameManagerr : MonoBehaviour
     [SerializeField] private GameoverPanel m_GameoverPanel;
     private SpawnManager m_SpawnManager;
     private GameState m_GameState;
+    private AudioManager m_AudioManger;
     private bool m_Win;
     private int m_Score;
     // Start is called before the first frame update
@@ -26,8 +27,10 @@ public class GameManagerr : MonoBehaviour
         m_GameplayPanel.gameObject.SetActive(false);
         m_PausePanel.gameObject.SetActive(false);
         m_GameoverPanel.gameObject.SetActive(false);
-        SetState(GameState.Home);
         m_SpawnManager=FindObjectOfType<SpawnManager>();
+        m_AudioManger=FindObjectOfType<AudioManager>();
+        SetState(GameState.Home);
+        
     }
 
     // Update is called once per frame
@@ -50,13 +53,21 @@ public class GameManagerr : MonoBehaviour
         {
             Time.timeScale= 1;
         }
+
+        if(m_GameState==GameState.Home)
+        {
+            m_AudioManger.PlayHomeMusic();
+        }
+        else
+        {
+            m_AudioManger.PlayBattleMusic();
+        }
         
     }
 
     public void Play()
     {
         SetState(GameState.Gameplay);
-        Debug.Log("Scence play");
         m_Score=0;
         m_GameplayPanel.DisplayScore(m_Score);
         m_SpawnManager.StartBattle();

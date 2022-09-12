@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
     private int m_Current_Hp;
     private float m_TempCooldown;
     private SpawnManager m_SpawnManager;
+    private AudioManager m_AudioManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class EnemyController : MonoBehaviour
         //Duyet tat ca object tren Scence va lay ra SpawnManager
         m_SpawnManager= FindObjectOfType<SpawnManager>();
         m_GameManager =FindObjectOfType<GameManagerr>();
+        m_AudioManager= FindObjectOfType<AudioManager>();
 
     }
 
@@ -62,6 +64,7 @@ public class EnemyController : MonoBehaviour
         // ProjecttileController projecttile = Instantiate(m_Projecttile, m_FiringPoint.position, Quaternion.identity, null);
         ProjecttileController projecttile = m_SpawnManager.SpawnEnemyProjectile(m_FiringPoint.position);
         projecttile.DestroyFire();
+        m_AudioManager.PlayPlasmaSFX();
     }
 
     public void Init(Transform[] wayPoints)
@@ -76,7 +79,14 @@ public class EnemyController : MonoBehaviour
     {
         m_Current_Hp -= damage;
         if(m_Current_Hp<=0)
+        {
             m_SpawnManager.ReleaseEnemy(this);
+            //Phuc
+            //m_SpawnManager.SpawnExlosionFX(transform.position);
             m_GameManager.AddScore(1);
+            m_AudioManager.PlayExplosionSFX();
+        }
+        m_AudioManager.PlayHitSFX(); 
     }
+    
 }
