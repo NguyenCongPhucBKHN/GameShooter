@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class PausePanel : MonoBehaviour
 {   
-    private GameManagerr m_GameManager;
+    // private GameManagerr m_GameManager;
     // Start is called before the first frame update
     void Start()
     {
-        m_GameManager =FindObjectOfType<GameManagerr>();
+        // m_GameManager =FindObjectOfType<GameManagerr>();
     }
 
     public void BtnHome_Press()
     {
-        m_GameManager.Home();
+        GameManagerr.Instance.Home();
     }
     public void BtnContine_Press()
     {
-        m_GameManager.Continue();
+        GameManagerr.Instance.Continue();
     }
 
 }

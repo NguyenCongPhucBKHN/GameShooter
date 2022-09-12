@@ -11,15 +11,35 @@ public enum GameState
     }
 public class GameManagerr : MonoBehaviour
 {
+    private static GameManagerr m_Instance;
+    public static GameManagerr Instance
+    {
+        get{
+            if(m_Instance ==null)
+             {
+            m_Instance =FindObjectOfType<GameManagerr>();
+            
+        }
+        return m_Instance;
+        }   
+       
+    }
     [SerializeField] private HomePanel m_HomePanel;
     [SerializeField] private GameplayPanel m_GameplayPanel;
     [SerializeField] private PausePanel m_PausePanel;
     [SerializeField] private GameoverPanel m_GameoverPanel;
-    private SpawnManager m_SpawnManager;
+    // private SpawnManager m_SpawnManager;
     private GameState m_GameState;
-    private AudioManager m_AudioManger;
+    // private AudioManager m_AudioManger;
     private bool m_Win;
     private int m_Score;
+    private void Awake() {
+        if(m_Instance==null)
+            m_Instance=this;
+        else if(m_Instance!=this)
+        Destroy(gameObject);
+
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +47,8 @@ public class GameManagerr : MonoBehaviour
         m_GameplayPanel.gameObject.SetActive(false);
         m_PausePanel.gameObject.SetActive(false);
         m_GameoverPanel.gameObject.SetActive(false);
-        m_SpawnManager=FindObjectOfType<SpawnManager>();
-        m_AudioManger=FindObjectOfType<AudioManager>();
+        // m_SpawnManager=FindObjectOfType<SpawnManager>();
+        // m_AudioManger=FindObjectOfType<AudioManager>();
         SetState(GameState.Home);
         
     }
@@ -56,11 +76,11 @@ public class GameManagerr : MonoBehaviour
 
         if(m_GameState==GameState.Home)
         {
-            m_AudioManger.PlayHomeMusic();
+            AudioManager.Instance.PlayHomeMusic();
         }
         else
         {
-            m_AudioManger.PlayBattleMusic();
+            AudioManager.Instance.PlayBattleMusic();
         }
         
     }
@@ -70,7 +90,7 @@ public class GameManagerr : MonoBehaviour
         SetState(GameState.Gameplay);
         m_Score=0;
         m_GameplayPanel.DisplayScore(m_Score);
-        m_SpawnManager.StartBattle();
+        SpawnManager.Instance.StartBattle();
     }
     public void Pause()
     {
@@ -79,7 +99,7 @@ public class GameManagerr : MonoBehaviour
     public void Home()
     {   Debug.Log("Scence home");
         SetState(GameState.Home);
-        m_SpawnManager.Clear();
+        SpawnManager.Instance.Clear();
     }
     public void Continue()
     {
@@ -97,7 +117,7 @@ public class GameManagerr : MonoBehaviour
         GameOver(false);
         m_Score+= value;
         m_GameplayPanel.DisplayScore(m_Score);
-        if(m_SpawnManager.isClear())
+        if(SpawnManager.Instance.isClear())
         {
             GameOver(true);
         }
