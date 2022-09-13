@@ -15,6 +15,7 @@ public class GameManagerr : MonoBehaviour
     [SerializeField] private GameplayPanel m_GameplayPanel;
     [SerializeField] private PausePanel m_PausePanel;
     [SerializeField] private GameoverPanel m_GameoverPanel;
+    [SerializeField] private float m_MoveSpeed;
     private SpawnManager m_SpawnManager;
     private GameState m_GameState;
     private AudioManager m_AudioManger;
@@ -36,7 +37,15 @@ public class GameManagerr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(( m_SpawnManager.isClear()) || FindObjectOfType<PlayerController>()==null)
+        {
+            if(m_SpawnManager.isClear())
+                return;
+            PlayerController m_PlayerController= FindObjectOfType<PlayerController>();
+            m_PlayerController.transform.position+=(new Vector3(0, 1,0)* m_MoveSpeed*Time.deltaTime);
+            Debug.Log("Position: "+ m_PlayerController.transform.position);
+            // GameOver(true); //True la thang
+        }
     }
     public void SetState(GameState state)
     {
@@ -88,6 +97,7 @@ public class GameManagerr : MonoBehaviour
     }
     public void GameOver(bool win)
     {
+        Debug.Log("Screen Gameover");
         m_Win= win;
         SetState(GameState.Gameover);
         m_GameoverPanel.DisplayResult(win);
@@ -95,13 +105,22 @@ public class GameManagerr : MonoBehaviour
     }
     public void AddScore(int value)
     {   
-        GameOver(false);
+        
         m_Score+= value;
         m_GameplayPanel.DisplayScore(m_Score);
-        if(m_SpawnManager.isClear())
+
+        if(( m_SpawnManager.isClear()) || FindObjectOfType<PlayerController>()==null)
         {
-            GameOver(true);
+            if(m_SpawnManager.isClear())
+            {
+                GameOver(false); //False la thua
+            }
+            PlayerController m_PlayerController= FindObjectOfType<PlayerController>();
+            // m_PlayerController.transform.Translate(new Vector3(0, 1)* m_MoveSpeed*Time.deltaTime);
+            GameOver(true); //True la thang
         }
+
+        
     }
     public bool IsActivate()
     {

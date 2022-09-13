@@ -142,7 +142,8 @@ public class SpawnManager : MonoBehaviour
         StopAllCoroutines();
     }
     private IEnumerator IESpawnGroups(int pGroups)
-    {   m_IsSpawningEnemies=false;
+    {   
+        m_IsSpawningEnemies=true;
         for (int i =0; i<pGroups; i++)
         {
             int m_TotalEnemy = Random.Range(m_MinTotalEnemy, m_MaxTotalEnemy);
@@ -152,7 +153,7 @@ public class SpawnManager : MonoBehaviour
             if(i< pGroups-1)
                 yield return new WaitForSeconds(delayGroup);
         }
-        m_IsSpawningEnemies=true;
+        m_IsSpawningEnemies=false;
     }
 
     private IEnumerator IESpawnEnenies(int m_TotalEnemy, EnemyPath path)
@@ -215,9 +216,13 @@ public class SpawnManager : MonoBehaviour
     {
         m_ShootingFXPool.Release(obj);
     }
+    //Ham check da het Enemy chua
     public bool isClear()
     {
-        if(m_IsSpawningEnemies||m_EnemyPool.activateObjs.Count>0)
+        Debug.Log("m_IsSpawningEnemies: "+ m_IsSpawningEnemies);
+        Debug.Log("m_EnemyPool.activateObjs.Count: "+ m_EnemyPool.activateObjs.Count);
+
+        if(m_IsSpawningEnemies || m_EnemyPool.activateObjs.Count>0)
         {
             return false;
         }

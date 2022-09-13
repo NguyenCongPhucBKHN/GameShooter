@@ -7,6 +7,7 @@ public class GameoverPanel : MonoBehaviour
     private GameManagerr m_GameManager;
     [SerializeField] private TextMeshProUGUI m_TxtResult;
     [SerializeField] private TextMeshProUGUI m_TxtHighScore;
+    [SerializeField] private TextMeshProUGUI m_TxtButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +23,17 @@ public class GameoverPanel : MonoBehaviour
         m_GameManager.Home();
     }
     public void DisplayResult(bool isWin)
-    {
+    {   
+        Debug.Log("isWin: " + isWin);
         if (isWin)
         {
             m_TxtResult.text= "YOU WIN";
+            m_TxtButton.text= "NEXT";
         }
         else
         {
             m_TxtResult.text="YOU LOSE";
+            m_TxtButton.text= "REPLAY";
         }
     }
 }

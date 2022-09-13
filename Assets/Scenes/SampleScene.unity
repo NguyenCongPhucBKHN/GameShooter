@@ -2642,6 +2642,7 @@ MonoBehaviour:
   m_GameplayPanel: {fileID: 1871180114}
   m_PausePanel: {fileID: 457841667}
   m_GameoverPanel: {fileID: 1785936506}
+  m_MoveSpeed: 100
 --- !u!4 &1064480519
 Transform:
   m_ObjectHideFlags: 0
@@ -2902,7 +2903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1444659188
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3907,6 +3908,7 @@ MonoBehaviour:
   m_GameplayPanel: {fileID: 1871180114}
   m_PausePanel: {fileID: 457841667}
   m_GameoverPanel: {fileID: 1785936506}
+  m_MoveSpeed: 0
 --- !u!1 &1785936504
 GameObject:
   m_ObjectHideFlags: 0
@@ -3960,6 +3962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TxtResult: {fileID: 422584274}
   m_TxtHighScore: {fileID: 1032029249}
+  m_TxtButton: {fileID: 560975248}
 --- !u!1 &1828644736
 GameObject:
   m_ObjectHideFlags: 0
