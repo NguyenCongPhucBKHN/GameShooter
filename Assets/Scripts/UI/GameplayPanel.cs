@@ -5,16 +5,16 @@ using TMPro;
 public class GameplayPanel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI m_TxtScore;
-    private GameManagerr m_GameManager;
+    // private GameManagerr m_GameManager;
     // Start is called before the first frame update
     void Start()
     {
-        m_GameManager=FindObjectOfType<GameManagerr>();
+        // m_GameManager=FindObjectOfType<GameManagerr>();
     }
     public void BtnPausePress()
     {
         Debug.Log("Screen Pause");
-        m_GameManager.Pause();
+        GameManagerr.Instance.Pause();
     }
     public void DisplayScore(int score)
     {

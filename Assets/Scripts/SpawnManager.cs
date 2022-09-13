@@ -100,6 +100,15 @@ public class ParticleFXPool
 
 public class SpawnManager : MonoBehaviour
 {
+    private static SpawnManager m_Instance;
+
+    public static SpawnManager Instance{
+        get{
+            if(m_Instance!=null)
+                m_Instance = FindObjectOfType<SpawnManager>();
+            return m_Instance;
+        }
+    }
     [SerializeField] bool m_Activate;
     [SerializeField] EnemyPool enemyPool;
     [SerializeField] ProjecttilePool m_PlayerProjectilesPool;
@@ -119,6 +128,13 @@ public class SpawnManager : MonoBehaviour
     private EnemyPool m_EnemyPool;
     private PlayerController m_Player;
     // Start is called before the first frame update
+
+     private void Awake() {
+        if(m_Instance!=null)
+                m_Instance=this;
+        else if(m_Instance!=this)
+            Destroy(gameObject);
+    }
     void Start()
     {
         
@@ -146,7 +162,7 @@ public class SpawnManager : MonoBehaviour
         for (int i =0; i<pGroups; i++)
         {
             int m_TotalEnemy = Random.Range(m_MinTotalEnemy, m_MaxTotalEnemy);
-             int pathIndex= Random.Range(0, m_Paths.Length);
+            int pathIndex= Random.Range(0, m_Paths.Length);
             EnemyPath path= m_Paths[pathIndex];
             yield return StartCoroutine(IESpawnEnenies(m_TotalEnemy, path));
             if(i< pGroups-1)

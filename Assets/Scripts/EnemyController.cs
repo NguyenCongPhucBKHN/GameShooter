@@ -7,8 +7,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float m_MoveSpeed;
     [SerializeField] private Transform[] m_WayPoints;
     private int m_CurrentWayPointIndex;
-    private bool m_Activate;
-    private GameManagerr m_GameManager;
+    // private bool m_Activate;
+    // private GameManagerr m_GameManager;
 
     [SerializeField] private ProjecttileController m_Projecttile;
     [SerializeField] private Transform m_FiringPoint;
@@ -19,21 +19,24 @@ public class EnemyController : MonoBehaviour
     // [SerializeField] private ProjecttilePool m_ProjectPoll;
     private int m_Current_Hp;
     private float m_TempCooldown;
-    private SpawnManager m_SpawnManager;
+    // private SpawnManager m_SpawnManager;
+    // private AudioManager m_AudioManager;
+
     // Start is called before the first frame update
     void Start()
     {
         gameObject.tag = "Enemy";
         //Duyet tat ca object tren Scence va lay ra SpawnManager
-        m_SpawnManager= FindObjectOfType<SpawnManager>();
-        m_GameManager =FindObjectOfType<GameManagerr>();
+        // m_SpawnManager= FindObjectOfType<SpawnManager>();
+        // m_GameManager =FindObjectOfType<GameManagerr>();
+        // m_AudioManager= FindObjectOfType<AudioManager>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!m_Activate)
+        if(!GameManagerr.Instance.IsActivate())
             return;
         int nextWayPoint = m_CurrentWayPointIndex + 1;
         if(nextWayPoint > m_WayPoints.Length-1)
@@ -60,14 +63,15 @@ public class EnemyController : MonoBehaviour
     public void Fire()
     {   
         // ProjecttileController projecttile = Instantiate(m_Projecttile, m_FiringPoint.position, Quaternion.identity, null);
-        ProjecttileController projecttile = m_SpawnManager.SpawnEnemyProjectile(m_FiringPoint.position);
+        ProjecttileController projecttile = SpawnManager.Instance.SpawnEnemyProjectile(m_FiringPoint.position);
         projecttile.DestroyFire();
+        AudioManager.Instance.PlayPlasmaSFX();
     }
 
     public void Init(Transform[] wayPoints)
     {
         m_WayPoints= wayPoints;
-        m_Activate= true;
+        // m_Activate= true;
         transform.position= wayPoints[0].position;
         m_TempCooldown = Random.Range(m_MinFiringCooldown, m_MaxFiringCooldown);
         m_Current_Hp=m_Hp;
@@ -76,7 +80,15 @@ public class EnemyController : MonoBehaviour
     {
         m_Current_Hp -= damage;
         if(m_Current_Hp<=0)
-            m_SpawnManager.ReleaseEnemy(this);
-            m_GameManager.AddScore(1);
+        {
+            SpawnManager.Instance.ReleaseEnemy(this);
+            //Phuc
+            //m_SpawnManager.SpawnExlosionFX(transform.position);
+            // m_GameManager.AddScore(1);
+            GameManagerr.Instance.AddScore(1);
+            AudioManager.Instance.PlayExplosionSFX();
+        }
+        AudioManager.Instance.PlayHitSFX(); 
     }
+    
 }

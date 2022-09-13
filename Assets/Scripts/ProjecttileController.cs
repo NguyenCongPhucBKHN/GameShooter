@@ -9,13 +9,13 @@ public class ProjecttileController : MonoBehaviour
     [SerializeField] float time_Life;
     [SerializeField] int m_Damage;
     private bool m_FromPlayer;
-    private SpawnManager m_SpawnManager;
+    // private SpawnManager m_SpawnManager;
     // [SerializeField] ProjecttilePool m_ProjectPoll;
     
     // Start is called before the first frame update
     void Start()
     {
-        m_SpawnManager= FindObjectOfType<SpawnManager>();
+        // m_SpawnManager= FindObjectOfType<SpawnManager>();
     }
 
     // Update is called once per frame
@@ -44,11 +44,11 @@ public class ProjecttileController : MonoBehaviour
         {
             
             if(m_FromPlayer)
-                m_SpawnManager.ReleasePlayerProjectile(this);
+                SpawnManager.Instance.ReleasePlayerProjectile(this);
             else
-                m_SpawnManager.ReleaseEnemyProjectile(this);
+                SpawnManager.Instance.ReleaseEnemyProjectile(this);
             Vector3 hitPos= other.ClosestPoint(transform.position);
-            m_SpawnManager.SpawnHitFX(hitPos);
+            SpawnManager.Instance.SpawnHitFX(hitPos);
 
             //Distroy Enemy  
             EnemyController enemy;
@@ -60,11 +60,11 @@ public class ProjecttileController : MonoBehaviour
         else  if(other.gameObject.CompareTag("Player"))
         {
             if(m_FromPlayer)
-                m_SpawnManager.ReleasePlayerProjectile(this);
+                SpawnManager.Instance.ReleasePlayerProjectile(this);
             else
-                m_SpawnManager.ReleaseEnemyProjectile(this);
+                SpawnManager.Instance.ReleaseEnemyProjectile(this);
             Vector3 hitPos= other.ClosestPoint(transform.position);
-            m_SpawnManager.SpawnHitFX(hitPos);
+            SpawnManager.Instance.SpawnHitFX(hitPos);
             
             PlayerController player;
             other.gameObject.TryGetComponent(out player);
@@ -79,11 +79,11 @@ public class ProjecttileController : MonoBehaviour
     {
         if(m_FromPlayer)
         {
-            m_SpawnManager.ReleasePlayerProjectile(this);
+            SpawnManager.Instance.ReleasePlayerProjectile(this);
         }
         else
         {
-            m_SpawnManager.ReleaseEnemyProjectile(this);
+            SpawnManager.Instance.ReleaseEnemyProjectile(this);
         }
     }
 }
