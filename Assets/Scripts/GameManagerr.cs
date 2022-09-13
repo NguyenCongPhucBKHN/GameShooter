@@ -24,7 +24,7 @@ public class GameManagerr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
-        
+        PlayerPrefs.SetInt("HighScore", 0);
         m_HomePanel.gameObject.SetActive(false);
         m_GameplayPanel.gameObject.SetActive(false);
         m_PausePanel.gameObject.SetActive(false);
@@ -43,9 +43,7 @@ public class GameManagerr : MonoBehaviour
             if(m_SpawnManager.isClear())
                 return;
             PlayerController m_PlayerController= FindObjectOfType<PlayerController>();
-            // m_PlayerController.transform.position+=(new Vector3(0, 1,0)* m_MoveSpeed*Time.deltaTime);
-            // Debug.Log("Position: "+ m_PlayerController.transform.position);
-            // GameOver(true); //True la thang
+        
         }
     }
     public void SetState(GameState state)
@@ -118,6 +116,7 @@ public class GameManagerr : MonoBehaviour
     {   
         
         m_Score+= value;
+
         m_GameplayPanel.DisplayScore(m_Score);
 
         if(( m_SpawnManager.isClear()) || FindObjectOfType<PlayerController>()==null)
@@ -137,5 +136,11 @@ public class GameManagerr : MonoBehaviour
     public bool IsActivate()
     {
         return m_GameState ==GameState.Gameover;
+    }
+    public int getScore(){
+        return m_Score;
+    }
+    public void setScore(int score){
+        m_Score=score;
     }
 }

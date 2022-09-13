@@ -14,6 +14,7 @@ public class PausePanel : MonoBehaviour
     public void BtnHome_Press()
     {
         PlayerPrefs.SetInt("HighScore", 0);
+        m_GameManager.setScore(0);
         m_GameManager.Home();
     }
     public void BtnContine_Press()

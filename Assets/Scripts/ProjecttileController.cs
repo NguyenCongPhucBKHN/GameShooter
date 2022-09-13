@@ -38,7 +38,7 @@ public class ProjecttileController : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other) {
          //Destroy dan
-        Release();
+        //Release();
         // m_ProjectPoll.Release(this);
         if(other.gameObject.CompareTag("Enemy"))
         {
