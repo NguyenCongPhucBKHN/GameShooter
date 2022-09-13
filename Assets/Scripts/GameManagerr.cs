@@ -23,7 +23,8 @@ public class GameManagerr : MonoBehaviour
     private int m_Score;
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        
         m_HomePanel.gameObject.SetActive(false);
         m_GameplayPanel.gameObject.SetActive(false);
         m_PausePanel.gameObject.SetActive(false);
@@ -42,8 +43,8 @@ public class GameManagerr : MonoBehaviour
             if(m_SpawnManager.isClear())
                 return;
             PlayerController m_PlayerController= FindObjectOfType<PlayerController>();
-            m_PlayerController.transform.position+=(new Vector3(0, 1,0)* m_MoveSpeed*Time.deltaTime);
-            Debug.Log("Position: "+ m_PlayerController.transform.position);
+            // m_PlayerController.transform.position+=(new Vector3(0, 1,0)* m_MoveSpeed*Time.deltaTime);
+            // Debug.Log("Position: "+ m_PlayerController.transform.position);
             // GameOver(true); //True la thang
         }
     }
@@ -78,8 +79,8 @@ public class GameManagerr : MonoBehaviour
     {
         m_SpawnManager.StartBattle();
         SetState(GameState.Gameplay);
-        m_Score=0;
-        m_GameplayPanel.DisplayScore(m_Score);
+        // m_Score=0;
+        m_GameplayPanel.DisplayScore(PlayerPrefs.GetInt("HighScore"));
         
     }
     public void Pause()
@@ -96,12 +97,22 @@ public class GameManagerr : MonoBehaviour
         SetState(GameState.Gameplay);
     }
     public void GameOver(bool win)
-    {
+    {   
+        int curScore= PlayerPrefs.GetInt("HighScore");
+        Debug.Log("curScore 1"+ curScore);
+        if(curScore<m_Score)
+        {
+            PlayerPrefs.SetInt("HighScore", m_Score);
+            Debug.Log("curScore 2"+ curScore);
+            curScore= m_Score;
+            Debug.Log("curScore 3"+ curScore);
+        }
         Debug.Log("Screen Gameover");
         m_Win= win;
         SetState(GameState.Gameover);
         m_GameoverPanel.DisplayResult(win);
-        m_GameoverPanel.DisplayHighScore(m_Score);
+        m_GameoverPanel.DisplayHighScore(curScore);
+        Debug.Log("curScore 4"+ curScore);
     }
     public void AddScore(int value)
     {   
@@ -114,6 +125,7 @@ public class GameManagerr : MonoBehaviour
             if(m_SpawnManager.isClear())
             {
                 GameOver(false); //False la thua
+                // PlayerPrefs.SetInt("HighScore", 0);
             }
             PlayerController m_PlayerController= FindObjectOfType<PlayerController>();
             // m_PlayerController.transform.Translate(new Vector3(0, 1)* m_MoveSpeed*Time.deltaTime);
