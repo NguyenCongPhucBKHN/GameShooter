@@ -67,10 +67,11 @@ public class GameManagerr : MonoBehaviour
 
     public void Play()
     {
+        m_SpawnManager.StartBattle();
         SetState(GameState.Gameplay);
         m_Score=0;
         m_GameplayPanel.DisplayScore(m_Score);
-        m_SpawnManager.StartBattle();
+        
     }
     public void Pause()
     {

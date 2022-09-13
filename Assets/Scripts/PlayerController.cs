@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!m_GameManager.IsActivate())
-            return;
+        // if(!m_GameManager.IsActivate())
+        //     return;
         float horizontal= Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector2 direction = new Vector2 (horizontal, vertical);
