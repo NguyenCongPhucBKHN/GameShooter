@@ -4,13 +4,13 @@ using UnityEngine;
 using TMPro;
 public class GameoverPanel : MonoBehaviour
 {
-    private GameManagerr m_GameManager;
+    // private GameManagerr m_GameManager;
     [SerializeField] private TextMeshProUGUI m_TxtResult;
     [SerializeField] private TextMeshProUGUI m_TxtHighScore;
     // Start is called before the first frame update
     void Start()
     {
-        m_GameManager=FindObjectOfType<GameManagerr>();
+        // m_GameManager=FindObjectOfType<GameManagerr>();
     }
     public void DisplayHighScore(int score)
     {
@@ -19,7 +19,7 @@ public class GameoverPanel : MonoBehaviour
     
     public void BtnHome_Pressed()
     {
-        m_GameManager.Home();
+        GameManagerr.Instance.Home();
     }
     public void DisplayResult(bool isWin)
     {

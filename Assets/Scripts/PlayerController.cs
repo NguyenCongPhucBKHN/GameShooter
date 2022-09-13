@@ -10,11 +10,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_FiringCooldown;
     [SerializeField] float m_TempCooldown;
     [SerializeField] int m_HpPlayer;
-    private SpawnManager m_SpawnManager;
-    private AudioManager m_AudioManager;
+    // private SpawnManager m_SpawnManager;
+    
+    // private AudioManager m_AudioManager;
     // [SerializeField] ProjecttilePool projecttilePool;
     private int m_CurrentHp;
-    private GameManagerr m_GameManager;
+    // private GameManagerr m_GameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -22,15 +23,15 @@ public class PlayerController : MonoBehaviour
         gameObject.tag="Player";
         transform.position=transform.position+ new Vector3(0, 0, -0.23f);
         m_CurrentHp= m_HpPlayer;
-        m_SpawnManager= FindObjectOfType<SpawnManager>();
-        m_GameManager= FindObjectOfType<GameManagerr>();
-        m_AudioManager =FindObjectOfType<AudioManager>();
+        // SpawnManager.Instance= FindObjectOfType<SpawnManager>();
+        // m_GameManager= FindObjectOfType<GameManagerr>();
+        // m_AudioManager =FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!m_GameManager.IsActivate())
+        if(!GameManagerr.Instance.IsActivate())
             return;
         float horizontal= Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -50,10 +51,10 @@ public class PlayerController : MonoBehaviour
     void Fire()
     {
         // ProjecttileController projectTile = Instantiate(m_projectTile, m_FiringPoint.position, Quaternion.identity );
-        ProjecttileController projectTile= m_SpawnManager.SpawnPlayerProjectile(m_FiringPoint.position);
+        ProjecttileController projectTile= SpawnManager.Instance.SpawnPlayerProjectile(m_FiringPoint.position);
         projectTile.DestroyFire();
-        m_SpawnManager.SpawnShootingFX(m_FiringPoint.position+ new Vector3 (0, 1.5f, 0));
-        m_AudioManager.PlayLazerSFX();
+        SpawnManager.Instance.SpawnShootingFX(m_FiringPoint.position+ new Vector3 (0, 1.5f, 0));
+        AudioManager.Instance.PlayLazerSFX();
     }
 
     public void Hit(int damage)
@@ -64,11 +65,11 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             //Phuc
             // m_SpawnManager.SpawnExlosionFX(transform.position);
-            m_GameManager.GameOver(false);
-            m_AudioManager.PlayExplosionSFX();
+            GameManagerr.Instance.GameOver(false);
+            AudioManager.Instance.PlayExplosionSFX();
 
         }
-         m_AudioManager.PlayHitSFX();   
+         AudioManager.Instance.PlayHitSFX();   
     }
     
 }
