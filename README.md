@@ -3,7 +3,7 @@
 <div>
 Game Shooter được xây dựng theo trò chơi bắn trứng với các màn hình sau:
 <div>
-<img src= "https://drive.google.com/file/d/1eSGBgN956eAmkKCsRi6uRao6EK43zhaj/view?usp=sharing" alt ="Home Screen">
+<img src= "https://drive.google.com/file/d/1eSGBgN956eAmkKCsRi6uRao6EK43zhaj/view?usp=sharing">
 </div>
 <div>
 <ul>
