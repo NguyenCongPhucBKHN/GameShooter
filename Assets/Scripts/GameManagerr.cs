@@ -86,8 +86,8 @@ public class GameManagerr : MonoBehaviour
         SetState(GameState.Pause);
     }
     public void Home()
-    {   Debug.Log("Scence home");
-        SetState(GameState.Home);
+    {   
+        
         m_SpawnManager.Clear();
     }
     public void Continue()
@@ -97,20 +97,15 @@ public class GameManagerr : MonoBehaviour
     public void GameOver(bool win)
     {   
         int curScore= PlayerPrefs.GetInt("HighScore");
-        Debug.Log("curScore 1"+ curScore);
         if(curScore<m_Score)
         {
             PlayerPrefs.SetInt("HighScore", m_Score);
-            Debug.Log("curScore 2"+ curScore);
             curScore= m_Score;
-            Debug.Log("curScore 3"+ curScore);
         }
-        Debug.Log("Screen Gameover");
         m_Win= win;
         SetState(GameState.Gameover);
         m_GameoverPanel.DisplayResult(win);
         m_GameoverPanel.DisplayHighScore(curScore);
-        Debug.Log("curScore 4"+ curScore);
     }
     public void AddScore(int value)
     {   

@@ -61,7 +61,6 @@ public class PlayerController : MonoBehaviour
         m_CurrentHp-=damage;
         if(m_CurrentHp<=0)
         {   
-            Debug.Log("m_CurrentHp "+ m_CurrentHp);
             Destroy(gameObject);
             //Phuc
             // m_SpawnManager.SpawnExlosionFX(transform.position);

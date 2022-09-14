@@ -13,7 +13,6 @@ public class GameplayPanel : MonoBehaviour
     }
     public void BtnPausePress()
     {
-        Debug.Log("Screen Pause");
         m_GameManager.Pause();
     }
     public void DisplayScore(int score)

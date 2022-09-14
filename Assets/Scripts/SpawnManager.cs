@@ -219,9 +219,6 @@ public class SpawnManager : MonoBehaviour
     //Ham check da het Enemy chua
     public bool isClear()
     {
-        Debug.Log("m_IsSpawningEnemies: "+ m_IsSpawningEnemies);
-        Debug.Log("m_EnemyPool.activateObjs.Count: "+ m_EnemyPool.activateObjs.Count);
-
         if(m_IsSpawningEnemies || m_EnemyPool.activateObjs.Count>0)
         {
             return false;

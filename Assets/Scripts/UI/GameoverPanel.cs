@@ -24,7 +24,6 @@ public class GameoverPanel : MonoBehaviour
     }
     public void DisplayResult(bool isWin)
     {   
-        Debug.Log("isWin: " + isWin);
         if (isWin)
         {
             m_TxtResult.text= "YOU WIN";
