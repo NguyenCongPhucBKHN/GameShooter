@@ -46,7 +46,7 @@
             <a href="https://drive.google.com/drive/folders/13FVWs332XdS5mAAAll_rbAQdbEEOj-k5?usp=sharing"> Video Demo </a>
         </li>
         <li>
-            <a href= "https://sharemygame.com/@NguyenCongPhuc/gameshooter"> Chơi thử</a>
+            <a href= "https://sharemygame.com/@NguyenCongPhuc/shootergame"> Chơi thử</a>
         </li>
         
     </ul>
