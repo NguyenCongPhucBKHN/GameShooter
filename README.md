@@ -9,7 +9,7 @@
             <ul>
              <li>Người chơi sử dụng các phím mũi tên sang trái, phải, lên, xuống để di chuyển máy bay và sử dụng phím cách để bắn vật cản.</li>
             <li>Trò chơi được xây dựng nhiều màn chơi với các chế độ Play, Pause, Continue và quay trở về màn hình Home. Trong quá trình chơi, khi chưa quay trở về Home, điểm số của người chơi được giữ nguyên, kể cả trong trường hợp người chơi bị thua và chơi ở chế độ RePlay</li>
-            <li>Máy bay sẽ bị phá hủy nếu trúng 5 viên đạn và tiêu diệt được đối thủ khi đối thủ trúng ba viên đạn</li>
+            <li>Máy bay sẽ bị phá hủy nếu trúng 5 viên đạn và tiêu diệt được đối thủ khi đối thủ trúng 3 viên đạn</li>
             </ul>
         </div>
         <div>
@@ -50,3 +50,6 @@
         </li>
     </ul>
 </div>
+
+<h2>Kỹ thuật sử dụng </h2>
+    
