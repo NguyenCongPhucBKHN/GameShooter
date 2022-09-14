@@ -1,14 +1,14 @@
 <h1 color="#EF00EE"> GameShooter </h1>
+<h2> Overview
 <div>
     <div>
     Game Shooter được xây dựng theo trò chơi bắn trứng với các màn hình sau:
     </div>
         <ul>
             <li>
-                <div>Home screen
+                <div>Home screen</div>
                 <a href="https://drive.google.com/uc?export=view&id=1eSGBgN956eAmkKCsRi6uRao6EK43zhaj"><img src="https://drive.google.com/uc?export=view&id=1eSGBgN956eAmkKCsRi6uRao6EK43zhaj" style="width: 270; height=540" title="Home screen" /> 
-                </div>
-                </li>
+            </li>
             <li>
             <div>Play screen</div>
             <a href="https://drive.google.com/uc?export=view&id=1qazqq9KyD0pYuik3IqdcboqO_jOxroqR"><img src="https://drive.google.com/uc?export=view&id=1qazqq9KyD0pYuik3IqdcboqO_jOxroqR" style="width: 270; height=540" title="Play screen" />
@@ -25,7 +25,8 @@
             <a href="https://drive.google.com/uc?export=view&id=1gY5aKbX1PUtrcNBL_B7RAvBoK1vLMoih"><img src="https://drive.google.com/uc?export=view&id=1gY5aKbX1PUtrcNBL_B7RAvBoK1vLMoih" style="width: 270; height=540" title="Gameover screen" />
         </ul>
 </div>
-
+</h2>
+<h2>DEMO
 <div>
     <ul>
         <li>
@@ -36,3 +37,4 @@
         </li>
     </ul>
 </div>
+</h2>
