@@ -5,9 +5,10 @@
     </div>
         <ul>
             <li>
-            <div>Home screen</div>
-            <a href="https://drive.google.com/uc?export=view&id=1eSGBgN956eAmkKCsRi6uRao6EK43zhaj"><img src="https://drive.google.com/uc?export=view&id=1eSGBgN956eAmkKCsRi6uRao6EK43zhaj" style="width: 270; height=540" title="Home screen" /> 
-            </li>
+                <div>Home screen
+                <a href="https://drive.google.com/uc?export=view&id=1eSGBgN956eAmkKCsRi6uRao6EK43zhaj"><img src="https://drive.google.com/uc?export=view&id=1eSGBgN956eAmkKCsRi6uRao6EK43zhaj" style="width: 270; height=540" title="Home screen" /> 
+                </div>
+                </li>
             <li>
             <div>Play screen</div>
             <a href="https://drive.google.com/uc?export=view&id=1qazqq9KyD0pYuik3IqdcboqO_jOxroqR"><img src="https://drive.google.com/uc?export=view&id=1qazqq9KyD0pYuik3IqdcboqO_jOxroqR" style="width: 270; height=540" title="Play screen" />
