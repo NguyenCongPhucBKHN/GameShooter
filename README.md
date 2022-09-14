@@ -5,6 +5,8 @@ Game Shooter được xây dựng theo trò chơi bắn trứng với các màn 
 <div>
   ![image](https://drive.google.com/uc?export=view&id=1eSGBgN956eAmkKCsRi6uRao6EK43zhaj)
 ![imgage](https://drive.google.com/uc?export=view&id=1eSGBgN956eAmkKCsRi6uRao6EK43zhaj)
+  
+  <a href="https://drive.google.com/uc?export=view&id=1eSGBgN956eAmkKCsRi6uRao6EK43zhaj"><img src="https://drive.google.com/uc?export=view&id=1eSGBgN956eAmkKCsRi6uRao6EK43zhaj" style="width: 650px; max-width: 100%; height: auto" title="Click to enlarge picture" /> 
 </div>
 <div>
 <ul>
