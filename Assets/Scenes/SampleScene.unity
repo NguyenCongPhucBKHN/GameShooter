@@ -1022,7 +1022,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 15.2701, y: -5.3279}
+  m_AnchoredPosition: {x: 15.270096, y: -5.3279114}
   m_SizeDelta: {x: -50.5405, y: -28.3441}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &422584274
@@ -3235,9 +3235,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1785936506}
-        m_TargetAssemblyTypeName: GameoverPanel, Assembly-CSharp
-        m_MethodName: BtnHome_Pressed
+      - m_Target: {fileID: 80116621}
+        m_TargetAssemblyTypeName: HomePanel, Assembly-CSharp
+        m_MethodName: BtnPlay_Pressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4362,7 +4362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc89cb1d3571fe940b2a1e6e25e300ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TxtResult: {fileID: 422584274}
+  m_TxtResult: {fileID: 1845586410}
   m_TxtHighScore: {fileID: 1032029249}
   m_TxtButton: {fileID: 560975248}
 --- !u!1 &1824679936
@@ -5236,7 +5236,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.9, y: -66}
+  m_AnchoredPosition: {x: 3.899994, y: -66}
   m_SizeDelta: {x: -64, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2022453006

@@ -12,10 +12,11 @@ public class PausePanel : MonoBehaviour
     }
 
     public void BtnHome_Press()
-    {
+    {   
+        m_GameManager.Home();
         PlayerPrefs.SetInt("HighScore", 0);
         m_GameManager.setScore(0);
-        m_GameManager.Home();
+        
     }
     public void BtnContine_Press()
     {

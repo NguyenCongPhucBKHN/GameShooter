@@ -87,7 +87,7 @@ public class GameManagerr : MonoBehaviour
     }
     public void Home()
     {   
-        
+        SetState(GameState.Home);
         m_SpawnManager.Clear();
     }
     public void Continue()
