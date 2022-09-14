@@ -1,18 +1,8 @@
-<h1 color="#EF00EE"> GameShooter </h1>
-<h2>DEMO
-<div>
-    <ul>
-        <li>
-            <a href= "https://sharemygame.com/@NguyenCongPhuc/gameshooter"> Chơi thử</a>
-        </li>
-        <li>
-            <a href="https://drive.google.com/drive/folders/13FVWs332XdS5mAAAll_rbAQdbEEOj-k5?usp=sharing"> Video Demo </a>
-        </li>
-    </ul>
-</div>
-</h2>
+<h1 color="#EF00EE"> <a href= "https://sharemygame.com/@NguyenCongPhuc/gameshooter"> GAME SHOOTER</a> </h1>
 
-<h2> Overview
+
+<h2> Overview </h2>
+
 <div>
     <div>
     Game Shooter được xây dựng theo trò chơi bắn trứng với các màn hình sau:
@@ -38,5 +28,16 @@
             <a href="https://drive.google.com/uc?export=view&id=1gY5aKbX1PUtrcNBL_B7RAvBoK1vLMoih"><img src="https://drive.google.com/uc?export=view&id=1gY5aKbX1PUtrcNBL_B7RAvBoK1vLMoih" style="width: 270; height=540" title="Gameover screen" />
         </ul>
 </div>
-</h2>
 
+<h2>DEMO</h2>
+
+<div>
+    <ul>
+        <li>
+            <a href= "https://sharemygame.com/@NguyenCongPhuc/gameshooter"> Chơi thử</a>
+        </li>
+        <li>
+            <a href="https://drive.google.com/drive/folders/13FVWs332XdS5mAAAll_rbAQdbEEOj-k5?usp=sharing"> Video Demo </a>
+        </li>
+    </ul>
+</div>
