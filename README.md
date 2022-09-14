@@ -1,4 +1,4 @@
-<h1 color="#EF00EE"> <a href= "https://sharemygame.com/@NguyenCongPhuc/gameshooter"> GAME SHOOTER</a> </h1>
+<h1 color="#EF00EE"> <a href= "https://sharemygame.com/@NguyenCongPhuc/shootergame"> GAME SHOOTER</a> </h1>
 
 
 <h2> Overview </h2>
